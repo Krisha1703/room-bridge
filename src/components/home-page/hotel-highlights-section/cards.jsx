@@ -26,13 +26,13 @@ const Cards = ({ rotateX, scale, translateY }) => {
               }}
             >
               {/* Image Section with Title */}
-              <div className="relative w-full h-48">
+              <div className="relative w-full h-48 ">
                 <Image
                   src={highlight.image}
                   layout="fill"
                   objectFit="cover"
                   alt={highlight.title}
-                  className="transition-all duration-300 ease-in-out"
+                  className="transition-allbg-black duration-300 ease-in-out"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center text-white opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                   <h3 className="text-xl font-semibold">{highlight.title}</h3>
@@ -41,7 +41,7 @@ const Cards = ({ rotateX, scale, translateY }) => {
   
               {/* Hover Overlay with Subtitle */}
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-sm text-center text-wrap max-w-[200px]">{highlight.description}</p>
+                <p className="text-sm text-center font-medium text-wrap max-w-[200px]">{highlight.description}</p>
               </div>
             </motion.div>
           ))}

@@ -9,8 +9,8 @@ const AnimatedMotionDiv = ({
   whileInView = "visible",
   whileHover = {
     scale: 3.5,
-    borderTopRightRadius: "2vw",
-    borderBottomLeftRadius: "2vw",
+    borderTopRightRadius: "1vw",
+    borderBottomLeftRadius: "1vw",
   },
   transition = { duration: 1 },
   className,

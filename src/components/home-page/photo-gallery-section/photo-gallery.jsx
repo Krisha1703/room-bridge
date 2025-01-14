@@ -4,7 +4,7 @@ import AnimatedMotionDiv from "./animated-motion-div";
 
 const GallerySection = () => {
   
-  const { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18  } = TransformImages(); // Get the shapes
+  const { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21  } = TransformImages(); // Get the shapes
 
   return (
     <div className="bg-primary relative p-4 w-full h-[500vh] overflow-hidden"> {/* Increased height to ensure scrolling */}
@@ -40,7 +40,7 @@ const GallerySection = () => {
       {/* Shape 3 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-40 w-[100px] h-[100px]"
+        className="top-1/5 left-80 w-[100px] h-[100px]"
         style={{
           x: image3.x,
           y: image3.y,
@@ -68,7 +68,7 @@ const GallerySection = () => {
       {/* Shape 5 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-40 w-[100px] h-[100px]"
+        className="top-1/5 left-60 w-[100px] h-[100px]"
         style={{
           x: image5.x,
           y: image5.y,
@@ -82,7 +82,7 @@ const GallerySection = () => {
        {/* Shape 6 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-80 w-[100px] h-[100px]"
+        className="top-1/5 left-[40vw] w-[100px] h-[100px]"
         style={{
           x: image6.x,
           y: image6.y,
@@ -94,12 +94,22 @@ const GallerySection = () => {
       />
 
        {/* Shape 7 */}
- 
+     <AnimatedMotionDiv
+        variants={commonVariants}
+        className="top-[-100vh] left-40 w-[100px] h-[100px]"
+        style={{
+          y: image7.y,
+          scale: 3,
+        }}
+        backgroundImage="/photo-gallery/simple.jpg"
+        title={image7.title}
+        subtitle={image7.subtitle}
+      />
 
        {/* Shape 8 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-20 w-[100px] h-[100px]"
+        className="top-1/5 left-0 w-[100px] h-[100px]"
         style={{
           x: image8.x,
           y: image8.y,
@@ -127,7 +137,7 @@ const GallerySection = () => {
        {/* Shape 10 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-20 w-[110px] h-[110px]"
+        className="top-1/5 left-40 w-[110px] h-[110px]"
         style={{
           x: image10.x,
           y: image10.y,
@@ -239,7 +249,7 @@ const GallerySection = () => {
        {/* Shape 18 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-20 w-[100px] h-[120px]"
+        className="top-[-15vh] left-20 w-[100px] h-[120px]"
         style={{
           x: image18.x,
           y: image18.y,
@@ -248,6 +258,48 @@ const GallerySection = () => {
         backgroundImage="/photo-gallery/hotel-sleep.avif"
         title={image18.title}
         subtitle={image18.subtitle}
+      />
+
+      {/* Shape 19 */}
+     <AnimatedMotionDiv
+        variants={commonVariants}
+        className="top-[-380vh] left-0 w-[100px] h-[100px]"
+        style={{
+          x: image19.x,
+          y: image19.y,
+          scale: 3,
+        }}
+        backgroundImage="/photo-gallery/deluxe-jacuzzi.jpg"
+        title={image19.title}
+        subtitle={image19.subtitle}
+      />
+
+       {/* Shape 20 */}
+     <AnimatedMotionDiv
+        variants={commonVariants}
+        className="top-[-370vh] left-80 w-[100px] h-[100px]"
+        style={{
+          x: image20.x,
+          y: image20.y,
+          scale: 3,
+        }}
+        backgroundImage="/photo-gallery/modern-hallway.jpg"
+        title={image20.title}
+        subtitle={image20.subtitle}
+      />
+
+      {/* Shape 21 */}
+     <AnimatedMotionDiv
+        variants={commonVariants}
+        className="top-[-120vh] left-[-50vw] w-[100px] h-[100px]"
+        style={{
+          x: image21.x,
+          y: image21.y,
+          scale: 3,
+        }}
+        backgroundImage="/photo-gallery/hotel-bar.jpg"
+        title={image21.title}
+        subtitle={image21.subtitle}
       />
 
   </div>

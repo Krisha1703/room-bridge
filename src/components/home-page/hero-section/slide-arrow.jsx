@@ -2,7 +2,9 @@
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 
-const SlideArrow = ({ direction, onClick }) => {
+const SlideArrow = ({ direction, disabled, onClick }) => {
+  if (disabled) return null;
+
   return (
     <div
       className={`absolute ${direction === "left" ? "left-4" : "right-4"} top-1/2 transform -translate-y-1/2 z-50 cursor-pointer`}

@@ -15,7 +15,7 @@ const HighlightSection = () => {
     <div className="flex flex-col">
       <div className="h-[120vh] flex items-center justify-center relative overflow-hidden">
         <div
-          className="py-0 w-full relative"
+          className="w-full relative"
           style={{
             perspective: "1000px",
           }}

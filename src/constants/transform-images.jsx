@@ -56,8 +56,8 @@ const TransformImages = () => {
     const image7 = {
         x: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [1000, 1010, 1020, 1030, 1040, 1050, 1060, 1070, 1080, 1090, 1100]),
         y: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250]),
-        title: "Deluxe Jacuzzi Suite",
-        subtitle: "Indulge in a luxurious stay with your own private jacuzzi and elegant room."
+        title: "Budget-Friendly",
+        subtitle: "Experience a remarkable budget-friendly stay with our cozy rooms"
     };
 
     // image 8 configuration
@@ -148,7 +148,30 @@ const TransformImages = () => {
         subtitle: "Experience a restful night sleep with our premium bedding."
     };
 
-    return { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18  }
+    // image 19 configuration
+    const image19 = {
+        x: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [250, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800]),
+        y: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [150, 300, 450, 600, 750, 600, 450, 300, 150, 0, -150]),
+        title: "Deluxe Jacuzzi Suite",
+        subtitle: "Indulge in a luxurious stay with your own private jacuzzi and elegant room."
+    };
+
+    const image20 = {
+        x: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [250, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800]),
+        y: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [150, 300, 450, 600, 750, 600, 450, 300, 150, 0, -150]),
+        title: "Modern Hallways",
+        subtitle: "Walk through the hotel’s stylish corridors, decorated with contemporary art."
+    };
+
+    // image 14 configuration
+    const image21 = {
+        x: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [-200, 200, 300, 400, 500, 600, 500, 400, 600, 800, 1000]),
+        y: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [1000, 1150, 1300, 1450, 1500, 1450, 1300, 1150, 1000, 850, 700]),
+        title: "Stylish Hotel Bar",
+        subtitle: "Relax and sip on your favorite drink in a chic, cozy bar setting."
+    };
+
+    return { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21  }
 }
 
 export default TransformImages;
