@@ -21,13 +21,19 @@ const testimonials = [
       userImage: '/user.png',
       userName: 'Emily Davis',
       review: 'The location was great, just a short walk to the beach. The room was clean and well-maintained. The staff was friendly, but I had a minor issue with the air conditioning.',
-      rating: 4
+      rating: 3.5
     },
     {
       userImage: '/user.png',
       userName: 'Chris Lee',
-      review: 'My family and I had an amazing time here. The pool was fantastic, and the hotel’s restaurant served delicious meals. A perfect place for a family getaway!',
+      review: 'My family and I had an amazing time here. The pool was fantastic, and the restaurant served delicious meals. A perfect place for a family getaway!',
       rating: 5
+    },
+    {
+      userImage: '/user.png',
+      userName: 'Roshni Mehta',
+      review: 'Everything was perfect, from start to finish. The staff was incredibly professional, and the amenities exceeded all expectations!',
+      rating: 4.5
     }
   ];
   

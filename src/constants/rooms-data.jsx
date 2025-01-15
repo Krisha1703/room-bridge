@@ -1,51 +1,168 @@
-
-
 const RoomsData = {
-    popular: [
-      {
-        image: "/popular-rooms/deluxe.jpg",
-        name: "Deluxe Room",
-        price: "$150 / night",
-        rating: 4.8,
-        description: "A perfect blend of luxury and comfort with a city view.",
-      },
-      {
-        image: "/popular-rooms/suite.jpg",
-        name: "Suite",
-        price: "$250 / night",
-        rating: 4.9,
-        description: "Spacious and elegant, ideal for a luxurious experience.",
-      },
-      {
-        image: "/popular-rooms/twin.jpg",
-        name: "Family Room",
-        price: "$180 / night",
-        rating: 4.7,
-        description: "Designed for families, featuring a cozy ambiance.",
-      },
-      {
-        image: "/popular-rooms/honeymoon.jpg",
-        name: "Honeymoon Suite",
-        price: "$300 / night",
-        rating: 5.0,
-        description: "Romantic and elegant, perfect for couples.",
-      },
-      {
-        image: "/popular-rooms/luxury-room.jpg",
-        name: "VIP Room",
-        price: "$400 / night",
-        rating: 5.0,
-        description: "Exclusive luxury for the elite.",
-      },
-      {
-        image: "/popular-rooms/simple-room.jpg",
-        name: "Economy Room",
-        price: "$100 / night",
-        rating: 4.5,
-        description: "Affordable comfort for travelers.",
-      },
-    ],
-  };
-  
-  export default RoomsData;
-  
+  popular: [
+    {
+      image: "/popular-rooms/deluxe.jpg",
+      name: "Deluxe Room",
+      price: "$150 / night",
+      rating: 4.8,
+      description: "A perfect blend of luxury and comfort with a city view.",
+    },
+    {
+      image: "/popular-rooms/suite.jpg",
+      name: "Suite",
+      price: "$250 / night",
+      rating: 4.9,
+      description: "Spacious and elegant, ideal for a luxurious experience.",
+    },
+    {
+      image: "/popular-rooms/twin.jpg",
+      name: "Family Room",
+      price: "$180 / night",
+      rating: 4.7,
+      description: "Designed for families, featuring a cozy ambiance.",
+    },
+    {
+      image: "/popular-rooms/honeymoon.jpg",
+      name: "Honeymoon Suite",
+      price: "$300 / night",
+      rating: 5.0,
+      description: "Romantic and elegant, perfect for couples.",
+    },
+    {
+      image: "/popular-rooms/luxury-room.jpg",
+      name: "VIP Room",
+      price: "$400 / night",
+      rating: 5.0,
+      description: "Exclusive luxury for the elite.",
+    },
+    {
+      image: "/popular-rooms/simple-room.jpg",
+      name: "Economy Room",
+      price: "$100 / night",
+      rating: 4.5,
+      description: "Affordable comfort for travelers.",
+    },
+  ],
+  budget: [
+    {
+      image: "/budget-rooms/single.jpg",
+      name: "Single Room",
+      price: "$80 / night",
+      rating: 4.4,
+      description: "Compact and comfortable for solo travelers.",
+    },
+    {
+      image: "/budget-rooms/economy.jpg",
+      name: "Economy Room",
+      price: "$100 / night",
+      rating: 4.5,
+      description: "Affordable and cozy with essential amenities.",
+    },
+    {
+      image: "/budget-rooms/shared.jpg",
+      name: "Shared Dormitory",
+      price: "$50 / night",
+      rating: 4.2,
+      description: "A great choice for budget-friendly group stays.",
+    },
+    {
+      image: "/budget-rooms/basic.jpg",
+      name: "Basic Room",
+      price: "$90 / night",
+      rating: 4.3,
+      description: "Simple and practical for budget-conscious travelers.",
+    },
+  ],
+  luxury: [
+    {
+      image: "/luxury-rooms/penthouse.jpg",
+      name: "Penthouse Suite",
+      price: "$800 / night",
+      rating: 5.0,
+      description: "Top-floor elegance with panoramic city views.",
+    },
+    {
+      image: "/luxury-rooms/presidential.jpg",
+      name: "Presidential Suite",
+      price: "$1,200 / night",
+      rating: 5.0,
+      description: "Unmatched opulence and privacy for VIP guests.",
+    },
+    {
+      image: "/luxury-rooms/royal.jpg",
+      name: "Royal Suite",
+      price: "$1,000 / night",
+      rating: 5.0,
+      description: "Majestic and luxurious, fit for royalty.",
+    },
+    {
+      image: "/luxury-rooms/spa.jpg",
+      name: "Spa Suite",
+      price: "$700 / night",
+      rating: 4.9,
+      description: "Relax and rejuvenate in this spa-inspired suite.",
+    },
+  ],
+  family: [
+    {
+      image: "/family-rooms/kids.jpg",
+      name: "Kids-Friendly Room",
+      price: "$200 / night",
+      rating: 4.8,
+      description: "Equipped with amenities tailored for families with kids.",
+    },
+    {
+      image: "/family-rooms/villa.jpg",
+      name: "Family Villa",
+      price: "$350 / night",
+      rating: 4.9,
+      description: "Spacious villa ideal for large families.",
+    },
+    {
+      image: "/family-rooms/connecting.jpg",
+      name: "Connecting Rooms",
+      price: "$300 / night",
+      rating: 4.7,
+      description: "Two adjoining rooms, perfect for families wanting privacy.",
+    },
+    {
+      image: "/family-rooms/cottage.jpg",
+      name: "Family Cottage",
+      price: "$280 / night",
+      rating: 4.6,
+      description: "Cozy cottages designed for memorable family vacations.",
+    },
+  ],
+  romantic: [
+    {
+      image: "/romantic-rooms/honeymoon.jpg",
+      name: "Honeymoon Suite",
+      price: "$300 / night",
+      rating: 5.0,
+      description: "Romantic and elegant, perfect for couples.",
+    },
+    {
+      image: "/romantic-rooms/candlelight.jpg",
+      name: "Candlelight Room",
+      price: "$250 / night",
+      rating: 4.8,
+      description: "Specially designed for a romantic getaway.",
+    },
+    {
+      image: "/romantic-rooms/private-villa.jpg",
+      name: "Private Villa",
+      price: "$450 / night",
+      rating: 5.0,
+      description: "Secluded and serene, ideal for romantic privacy.",
+    },
+    {
+      image: "/romantic-rooms/oceanview.jpg",
+      name: "Ocean View Suite",
+      price: "$400 / night",
+      rating: 4.9,
+      description: "Wake up to breathtaking views of the ocean.",
+    },
+  ],
+};
+
+export default RoomsData;
