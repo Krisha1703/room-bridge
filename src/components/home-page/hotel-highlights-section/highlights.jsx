@@ -1,7 +1,7 @@
 import React from "react";
 import {useScroll, useTransform } from "framer-motion";
-import Cards from "./Cards";
-import Header from "./Header";
+import Cards from "./cards";
+import Header from "./header";
 
 const HighlightSection = () => {
   const { scrollYProgress } = useScroll();
