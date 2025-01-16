@@ -8,6 +8,8 @@ import MostPopularRooms from "@/components/home-page/popular-rooms";
 import GallerySection from "@/components/home-page/photo-gallery-section/photo-gallery";
 import TestimonialSection from "@/components/home-page/testimonial-section/testimonial-section";
 import OffersSection from "@/components/home-page/offers";
+import Footer from "@/components/footer";
+import ScrollToTopButton from "@/components/scroll-top";
 
 const HomePage = () => {
 
@@ -20,6 +22,8 @@ const HomePage = () => {
       <OffersSection />
       <TestimonialSection />
       <GallerySection />
+      <Footer />
+      <ScrollToTopButton />
     </>
       
   );

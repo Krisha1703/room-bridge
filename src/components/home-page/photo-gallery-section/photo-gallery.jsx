@@ -1,14 +1,21 @@
 import commonVariants from "./common-variants";
 import TransformImages from "@/constants/transform-images";
 import AnimatedMotionDiv from "./animated-motion-div";
+import TextOutline from "./text-outline";
+import GalleryText from "./gallery-text";
 
 const GallerySection = () => {
-  
+
   const { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21  } = TransformImages(); // Get the shapes
 
   return (
     <div className="bg-primary relative p-4 w-full h-[500vh] overflow-hidden"> {/* Increased height to ensure scrolling */}
-     
+      
+      <GalleryText 
+        words= {["Explore", "Our", "Stunning", "Gallery"]}
+        className="top-10 right-20"
+      />
+
      {/* Shape 1 */}
      <AnimatedMotionDiv
         variants={commonVariants}
@@ -106,6 +113,11 @@ const GallerySection = () => {
         subtitle={image7.subtitle}
       />
 
+      <GalleryText 
+        words= {["Discover", "Our", "Exceptional", "Amenities"]}
+        className="top-[180vh]  left-20"
+      />
+
        {/* Shape 8 */}
      <AnimatedMotionDiv
         variants={commonVariants}
@@ -146,7 +158,12 @@ const GallerySection = () => {
         backgroundImage="/photo-gallery/business-meeting.webp"
         title={image10.title}
         subtitle={image10.subtitle}
-      />
+      /> 
+
+      <GalleryText 
+        words= {["Experience", "Serenity", "Like", "Never", "Before"]}
+        className="top-[270vh]  right-20"
+      />    
 
         {/* Shape 11 */}
      <AnimatedMotionDiv
@@ -175,6 +192,11 @@ const GallerySection = () => {
         title={image12.title}
         subtitle={image12.subtitle}
       />
+
+      <GalleryText 
+        words= {["Create", "Memories", "That", "Last", "Forever"]}
+        className="top-[350vh] left-20 max-w-[30vw] leading-snug text-wrap"
+      />  
 
       {/* Shape 13 */}
      <AnimatedMotionDiv
@@ -231,6 +253,11 @@ const GallerySection = () => {
         title={image16.title}
         subtitle={image16.subtitle}
       />
+
+      <GalleryText 
+        words= {["Relax,", "Refresh,", "Reconnect"]}
+        className="top-[425vh] right-20"
+      /> 
 
        {/* Shape 17 */}
      <AnimatedMotionDiv
@@ -301,6 +328,8 @@ const GallerySection = () => {
         title={image21.title}
         subtitle={image21.subtitle}
       />
+
+      <TextOutline />
 
   </div>
   );
