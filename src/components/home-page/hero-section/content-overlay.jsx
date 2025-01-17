@@ -1,17 +1,16 @@
-// components/MainContentOverlay.js
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 const ContentOverlay = () => {
   return (
     <motion.div
-      className="absolute md:top-1/2 top-1/4 sm:left-10  md:left-0 md:transform md:-translate-y-1/2 lg:mx-60 md:mx-40 sm:mx-5 flex md:flex-row flex-col gap-y-4 md:gap-y-0 justify-between lg:space-x-6 md:space-x-3 items-center"
+      className="absolute md:top-1/4 top-10 left-10 sm:left-10 md:left-0  lg:mx-60 md:mx-40 sm:mx-5 flex md:flex-row flex-col gap-y-4 md:gap-y-0 justify-between lg:space-x-6 md:space-x-3 items-center"
       initial={{ opacity: 0, y: 100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       whileInView={{ opacity: 1 }}
     >
-      <h1 className="text-white font-semibold z-10 lg:text-3xl md:text-2xl sm:text-xl  cursor-pointer">
+      <h1 className="text-white font-semibold z-10 lg:text-3xl md:text-2xl sm:text-xl text-[1.1rem] cursor-pointer">
         Find Your Perfect Stay with
         <span className="text-secondary ml-1">Room</span>
         <span className="text-primary">Bridge</span>

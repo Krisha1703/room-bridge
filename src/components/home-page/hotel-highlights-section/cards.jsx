@@ -1,6 +1,6 @@
 import Image from "next/image";
 import highlights from "@/constants/hotel-highlights";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 
 const Cards = ({ rotateX, scale, translateY }) => {
     return (
@@ -8,10 +8,8 @@ const Cards = ({ rotateX, scale, translateY }) => {
         style={{
           rotateX,
           scale,
-          boxShadow: 
-          "0 0 10px rgba(0, 0, 0, 0.2), 0 4px 15px rgba(0, 0, 0, 0.15), 0 10px 25px rgba(0, 0, 0, 0.1)",
         }}
-        className="mx-auto h-auto w-5/6 rounded-md shadow-md cursor-pointer"
+        className="mx-auto h-auto w-5/6 rounded-md cursor-pointer"
       >
         <div className="h-auto w-full rounded-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 pt-10 pb-0">
           {highlights.map((highlight, index) => (
@@ -32,6 +30,7 @@ const Cards = ({ rotateX, scale, translateY }) => {
                   layout="fill"
                   objectFit="cover"
                   alt={highlight.title}
+                  loading="lazy"
                   className="transition-allbg-black duration-300 ease-in-out"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center text-white opacity-100 group-hover:opacity-0 transition-opacity duration-300">

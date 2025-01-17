@@ -1,18 +1,20 @@
 import { motion, useTransform, useScroll } from "motion/react";
-import SlideArrow from "@/components/home-page/hero-section/slide-arrow";
-import SlideText from "@/components/home-page/hero-section/slide-text";
-import DotNavigation from "@/components/home-page/hero-section/dot-navigation";
-import ContentOverlay from "@/components/home-page/hero-section/content-overlay";
-import slides  from "@/constants/slide-details";
-
 import { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import slides  from "@/constants/slide-details";
+
+// Dynamically imported components
+const SlideArrow = dynamic(() => import("@/components/home-page/hero-section/slide-arrow"), { ssr: false });
+const SlideText = dynamic(() => import("@/components/home-page/hero-section/slide-text"), { ssr: false });
+const DotNavigation = dynamic(() => import("@/components/home-page/hero-section/dot-navigation"), { ssr: false });
+const ContentOverlay = dynamic(() => import("@/components/home-page/hero-section/content-overlay"), { ssr: false });
 
 const Hero = () => {
   const {scrollYProgress} = useScroll();
 
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.8]);
-  const borderRadius = useTransform(scrollYProgress, [0, 0.2], ["0%", "10%"]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.2], ["0%", "20vw"]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -29,39 +31,41 @@ const Hero = () => {
   };
   return (
     <div className="relative w-full h-screen">
-        <div className="relative w-full h-screen overflow-hidden">
-            <motion.div
-            key={currentIndex}
-            className="absolute w-full h-full overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{scale, borderRadius}}
-            >
-            <Image
-                src={slides[currentIndex].image}
-                layout="fill"
-                objectFit="cover"
-                alt={`Slide ${currentIndex + 1}`}
-                loading="lazy"
-                className="w-full h-full"
-            />
-            </motion.div>
+      <div className="relative w-full h-screen overflow-hidden">
+        <motion.div
+          key={currentIndex}
+          className="absolute w-full md:h-full h-1/3 overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{scale, borderRadius}}
+        >
+          
+          <Image
+            src={slides[currentIndex].image}
+            layout="fill"
+            objectFit="cover"
+            alt={`Slide ${currentIndex + 1}`}
+            loading="lazy"
+            className="w-full h-full"
+          />
+        </motion.div>
 
-            {/* Arrow Buttons */}
-            <SlideArrow direction="left" onClick={handlePrev} />
-            <SlideArrow direction="right" onClick={handleNext} />
+        {/* Arrow Buttons */}
+        <SlideArrow direction="left" onClick={handlePrev} />
+        <SlideArrow direction="right" onClick={handleNext} />
 
-            {/* Slide Text */}
-            <SlideText title={slides[currentIndex].title} description={slides[currentIndex].description} />
+        {/* Slide Text */}
+        <SlideText title={slides[currentIndex].title} description={slides[currentIndex].description} />
 
-            {/* Dot Navigation */}
-            <DotNavigation slides={slides} currentIndex={currentIndex} handleDotClick={handleDotClick} />
-        </div>
+        {/* Dot Navigation */}
+        <DotNavigation slides={slides} currentIndex={currentIndex} handleDotClick={handleDotClick} />
+    
+      </div>
 
-        {/* Main Content Overlay */}
-        <ContentOverlay />
+      {/* Main Content Overlay */}
+      <ContentOverlay />
     </div>
   )
 }

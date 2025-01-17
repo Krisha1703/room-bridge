@@ -1,4 +1,3 @@
-// components/ScrollToTopButton.js
 import { useState, useEffect } from "react";
 
 const ScrollToTopButton = () => {
@@ -6,18 +5,17 @@ const ScrollToTopButton = () => {
 
   // Check if the window is scrolled
   const checkScroll = () => {
-    if (window.scrollY > 300) {
-      setShowButton(true); // Show button if scrolled down
+    if (window.scrollY > 500) {
+      setShowButton(true); 
     } else {
-      setShowButton(false); // Hide button if at top
+      setShowButton(false); 
     }
   };
 
   useEffect(() => {
-    // Add event listener to track scroll
     window.addEventListener("scroll", checkScroll);
     return () => {
-      window.removeEventListener("scroll", checkScroll); // Cleanup on component unmount
+      window.removeEventListener("scroll", checkScroll); 
     };
   }, []);
 

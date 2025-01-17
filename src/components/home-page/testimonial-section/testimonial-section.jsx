@@ -1,23 +1,22 @@
-import TestimonialCard from "./testimonial-card";
 import testimonials from "@/constants/guest-testimonials";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const TestimonialCard = dynamic(() => import("./testimonial-card"), { ssr: false });
 
 const TestimonialSection = () => {
-
   return (
-    <section className="p-10 justify-items-center items-center justify-center  overflow-hidden">
+    <section className="p-10 justify-items-center items-center justify-center -mt-10 overflow-hidden">
       <h2 className="text-2xl font-bold text-center mb-10 text-primary">What Our Guests Say?</h2>
       
       <div className="flex gap-6 mb-10">
         
-          <TestimonialCard 
-            userName={testimonials[0].userName}
-            userImage={testimonials[0].userImage}
-            rating={testimonials[0].rating}
-            review={testimonials[0].review}
-          />
-
-
+        <TestimonialCard 
+          userName={testimonials[0].userName}
+          userImage={testimonials[0].userImage}
+          rating={testimonials[0].rating}
+          review={testimonials[0].review}
+        />
+      
         <TestimonialCard 
           userName={testimonials[1].userName}
           userImage={testimonials[1].userImage}

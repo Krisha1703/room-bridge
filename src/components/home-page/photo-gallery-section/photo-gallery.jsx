@@ -1,8 +1,11 @@
-import commonVariants from "./common-variants";
+import dynamic from "next/dynamic";
 import TransformImages from "@/constants/transform-images";
-import AnimatedMotionDiv from "./animated-motion-div";
-import TextOutline from "./text-outline";
-import GalleryText from "./gallery-text";
+
+// Dynamically imported components
+const commonVariants = dynamic(() => import("./common-variants"), { ssr: false });
+const AnimatedMotionDiv = dynamic(() => import("./animated-motion-div"), { ssr: false });
+const TextOutline = dynamic(() => import("./text-outline"), { ssr: false });
+const GalleryText = dynamic(() => import("./gallery-text"), { ssr: false });
 
 const GallerySection = () => {
 

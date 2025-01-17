@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
-import SlideArrow from "./hero-section/slide-arrow";
-import RoomsData from "@/constants/rooms-data";
+import dynamic from "next/dynamic";
+import { motion } from "motion/react";
+import SlideArrow from "../hero-section/slide-arrow";
+import AdventuresData from "@/constants/adventures-data";
 
-const MostPopularRooms = () => {
-  const popularRooms = RoomsData.popular; // Correct constant name
+const Tilt = dynamic(() => import("react-parallax-tilt"), { ssr: false });
+
+const Adventures = () => {
+  const adventures = AdventuresData;
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 4;
 
   const handleNext = () => {
-    if (startIndex + itemsPerPage < popularRooms.length) {
+    if (startIndex + itemsPerPage < adventures.length) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -23,18 +25,18 @@ const MostPopularRooms = () => {
   };
 
   return (
-    <section className="py-0 px-6 relative">
+    <section className="py-0 px-6 relative mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <h2 className="text-3xl font-bold text-primary text-center mb-14">
-          Most Popular & Trending Rooms
+          Embark on Unforgettable Adventures
         </h2>
 
         {/* Carousel Wrapper */}
         <div className="relative">
           {/* Slide Content */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularRooms.slice(startIndex, startIndex + itemsPerPage).map((room, index) => (
+            {adventures.slice(startIndex, startIndex + itemsPerPage).map((adventure, index) => (
               <Tilt
                 key={index}
                 tiltMaxAngleX={10}
@@ -42,30 +44,27 @@ const MostPopularRooms = () => {
                 transitionSpeed={500}
                 className="group relative bg-white rounded-lg shadow-lg overflow-hidden"
               >
-                {/* Room Image */}
+                {/* Adventure Image */}
                 <div className="relative w-full h-64">
                   <Image
-                    src={room.image}
+                    src={adventure.image}
                     layout="fill"
                     objectFit="cover"
-                    alt={room.name}
+                    loading="lazy"
+                    alt={adventure.name}
                     className="transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
 
-                {/* Room Info */}
+                {/* Adventure Info */}
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {room.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">{room.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-800">{adventure.name}</h3>
+                  <p className="text-sm text-gray-600">{adventure.description}</p>
                   <div className="flex justify-between items-center mt-4">
-                    <span className="text-primary font-bold">{room.price}</span>
+                    <span className="text-primary font-bold">{adventure.price}</span>
                     <div className="flex items-center space-x-1">
                       <span className="text-yellow-500">★</span>
-                      <span className="text-gray-700 font-medium">
-                        {room.rating}
-                      </span>
+                      <span className="text-gray-700 font-medium">{adventure.rating}</span>
                     </div>
                   </div>
                 </div>
@@ -87,7 +86,7 @@ const MostPopularRooms = () => {
               onClick={handlePrev}
             />
           )}
-          {startIndex + itemsPerPage < popularRooms.length && (
+          {startIndex + itemsPerPage < adventures.length && (
             <SlideArrow
               direction="right"
               onClick={handleNext}
@@ -99,4 +98,4 @@ const MostPopularRooms = () => {
   );
 };
 
-export default MostPopularRooms;
+export default Adventures;

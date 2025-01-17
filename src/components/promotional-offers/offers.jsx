@@ -1,13 +1,10 @@
-import React from "react";
 import Image from "next/image";
-import { PromotionalOffers } from "@/constants/promotional-offers"; // Import the offers data
-import { motion, useScroll, useTransform } from "framer-motion";
+import { PromotionalOffers } from "@/constants/promotional-offers";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const OffersSection = () => {
-  // Scroll tracking
   const { scrollYProgress } = useScroll();
 
-  // Function to determine slide direction based on offer id and scroll position
   const slideDirection = (id, scrollProgress) => {
     if (id === 1) {
       return { x: useTransform(scrollProgress, [0, 0.1, 0.2, 0.3, 0.4], ["-100%", "-75%", "-50%", "-25%", "0%"]) }; // Slide from left
@@ -16,7 +13,7 @@ const OffersSection = () => {
     } else if (id === 3) {
       return { x: useTransform(scrollProgress, [0, 0.1, 0.2, 0.3, 0.4], ["100%", "75%", "50%", "25%", "0%"]) }; // Slide from right
     }
-    return {}; // Default to no slide
+    return {};
   };
 
   return (
@@ -26,23 +23,24 @@ const OffersSection = () => {
       </h2>
       <div className="flex flex-wrap justify-center gap-4 scale-[80%]">
         {PromotionalOffers.map((offer, index) => {
-          // Get the animation effect based on the scroll position and offer id
+          // Animation effect based on the scroll position and offer id
           const slideEffect = slideDirection(offer.id, scrollYProgress);
 
           return (
             <motion.div
               key={offer.id}
               className="relative w-full h-[90vh] md:w-1/3 lg:w-1/4 bg-secondary rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={slideEffect} // Apply the dynamic slide effect based on scroll position
-              initial={{ opacity: 0 }} // Initially hidden
-              animate={{ opacity: 1 }} // Fade-in effect on scroll
+              style={slideEffect} 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
               transition={{ duration: 1, delay: index * 0.2 }}
             >
               <Image
                 src={offer.image}
                 alt={offer.title}
-                width={500} // Adjust width
-                height={300} // Adjust height
+                width={500} 
+                height={300} 
+                loading="lazy"
                 className="w-full h-3/5 object-cover"
               />
               <div className="p-6">

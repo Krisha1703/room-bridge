@@ -2,7 +2,7 @@ import {useTransform, useScroll } from "motion/react";
 
 const TransformImages = () => {
     
-    const { scrollYProgress } = useScroll(); // Get scroll progress
+    const { scrollYProgress } = useScroll(); 
     
     // image 1 configuration
     const image1 = {
@@ -156,6 +156,7 @@ const TransformImages = () => {
         subtitle: "Indulge in a luxurious stay with your own private jacuzzi and elegant room."
     };
 
+    // image 20 configuration
     const image20 = {
         x: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [250, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800]),
         y: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [150, 300, 450, 600, 750, 600, 450, 300, 150, 0, -150]),
@@ -163,7 +164,7 @@ const TransformImages = () => {
         subtitle: "Walk through the hotel’s stylish corridors, decorated with contemporary art."
     };
 
-    // image 14 configuration
+    // image 21 configuration
     const image21 = {
         x: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [-200, 200, 300, 400, 500, 600, 500, 400, 600, 800, 1000]),
         y: useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [1000, 1150, 1300, 1450, 1500, 1450, 1300, 1150, 1000, 850, 700]),

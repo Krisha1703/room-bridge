@@ -1,14 +1,14 @@
 // Adventures and Exploring Nearby Section
 const AdventuresData = [
     {
-      image: "/adventures/hiking.jpg",
+      image: "/adventures/hiking.jpeg",
       name: "Mountain Hiking",
       price: "$120 per person",
       rating: 4.9,
       description: "Experience breathtaking views and challenging trails on our guided mountain hikes.",
     },
     {
-      image: "/adventures/cycling.jpg",
+      image: "/adventures/cycling.avif",
       name: "City Cycling Tour",
       price: "$80 per person",
       rating: 4.7,
@@ -22,7 +22,7 @@ const AdventuresData = [
       description: "Navigate through serene waters and enjoy the natural beauty on our kayaking adventures.",
     },
     {
-      image: "/adventures/safari.jpg",
+      image: "/adventures/safari.webp",
       name: "Wildlife Safari",
       price: "$200 per person",
       rating: 5.0,
@@ -37,3 +37,4 @@ const AdventuresData = [
     },
   ];
   
+export default AdventuresData;

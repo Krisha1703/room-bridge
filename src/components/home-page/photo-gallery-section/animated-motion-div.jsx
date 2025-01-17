@@ -1,6 +1,4 @@
-// src/components/HoverableShape.jsx
-import React from "react";
-import { motion } from "framer-motion"; // Assuming you're using Framer Motion
+import { motion } from "motion/react"; 
 import TextOverlay from "./text-overlay";
 
 const AnimatedMotionDiv = ({

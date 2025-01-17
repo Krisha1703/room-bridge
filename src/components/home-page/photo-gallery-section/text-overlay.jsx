@@ -1,5 +1,3 @@
-import React from 'react'
-
 const TextOverlay = ({title, subtitle}) => {
   return (
     <div className="absolute inset-0 flex flex-col  items-center justify-center opacity-0 group-hover:opacity-100">

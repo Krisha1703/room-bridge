@@ -1,4 +1,4 @@
-// Images and their details
+// Slide details for the hero section
 const slides = [
     {
       image: "/hero-section/Group 5.svg",
