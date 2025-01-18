@@ -10,7 +10,7 @@ const SlideText = ({ title, description }) => {
         initial={{ backgroundColor: "#1E3A8A" }}
         whileHover="hover"
         whileTap="hover"
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 1 }}
       >
         <motion.div
           className="absolute top-0 h-full w-0 bg-secondary z-0"

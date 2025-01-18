@@ -6,9 +6,9 @@ const TestimonialCard = dynamic(() => import("./testimonial-card"), { ssr: false
 const TestimonialSection = () => {
   return (
     <section className="p-10 justify-items-center items-center justify-center -mt-10 overflow-hidden">
-      <h2 className="text-2xl font-bold text-center mb-10 text-primary">What Our Guests Say?</h2>
+      <h2 className="text-2xl font-bold text-center mb-20 text-primary">What Our Guests Say?</h2>
       
-      <div className="flex gap-6 mb-10">
+      <div className="md:flex block gap-6 md:space-y-0 space-y-10 mb-10">
         
         <TestimonialCard 
           userName={testimonials[0].userName}
@@ -32,7 +32,7 @@ const TestimonialSection = () => {
         />
       </div>
 
-      <div className="flex gap-6">
+      <div className="md:flex block gap-6 md:space-y-0 space-y-10 mb-10">
         <TestimonialCard 
           userName={testimonials[3].userName}
           userImage={testimonials[3].userImage}

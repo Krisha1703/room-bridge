@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useMedia from "use-media";
 import Image from "next/image";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
@@ -8,9 +9,10 @@ import RoomsData from "@/constants/rooms-data";
 const Tilt = dynamic(() => import("react-parallax-tilt"), { ssr: false });
 
 const MostPopularRooms = () => {
+  const isLargeScreen = useMedia({ minWidth: 768 });
   const popularRooms = RoomsData.popular; 
   const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = isLargeScreen ? 4 : 1;
 
   const handleNext = () => {
     if (startIndex + itemsPerPage < popularRooms.length) {
@@ -25,10 +27,10 @@ const MostPopularRooms = () => {
   };
 
   return (
-    <section className="py-0 px-6 relative -mt-20">
+    <section className="py-0 px-6 relative md:-mt-20 -mt-40">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <h2 className="text-3xl font-bold text-primary text-center mb-14">
+        <h2 className="md:text-3xl text-2xl font-bold text-primary text-center mb-14">
           Most Popular & Trending Rooms
         </h2>
 

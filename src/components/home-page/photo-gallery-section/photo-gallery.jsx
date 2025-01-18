@@ -12,17 +12,17 @@ const GallerySection = () => {
   const { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21  } = TransformImages(); // Get the shapes
 
   return (
-    <div className="bg-primary relative p-4 w-full h-[500vh] overflow-hidden"> {/* Increased height to ensure scrolling */}
+    <div className="bg-primary relative p-4 w-full md:h-[500vh] h-[450vh] overflow-hidden"> {/* Increased height to ensure scrolling */}
       
       <GalleryText 
         words= {["Explore", "Our", "Stunning", "Gallery"]}
-        className="top-10 right-20"
+        className="md:top-10 top-20 md:right-20 "
       />
 
      {/* Shape 1 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-0 left-0 w-[100px] h-[100px]"
+        className="top-0 md:left-0 -left-20 w-[100px] h-[100px]"
         style={{
           x: image1.x,
           y: image1.y,
@@ -106,7 +106,7 @@ const GallerySection = () => {
        {/* Shape 7 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-[-100vh] left-40 w-[100px] h-[100px]"
+        className="md:top-[-100vh] top-40 left-40 w-[100px] h-[100px]"
         style={{
           y: image7.y,
           scale: 3,
@@ -118,7 +118,7 @@ const GallerySection = () => {
 
       <GalleryText 
         words= {["Discover", "Our", "Exceptional", "Amenities"]}
-        className="top-[180vh]  left-20"
+        className="top-[180vh] left-10 md:left-20 md:leading-normal leading-snug"
       />
 
        {/* Shape 8 */}
@@ -165,13 +165,13 @@ const GallerySection = () => {
 
       <GalleryText 
         words= {["Experience", "Serenity", "Like", "Never", "Before"]}
-        className="top-[270vh]  right-20"
+        className="top-[270vh]  md:right-20"
       />    
 
         {/* Shape 11 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-20 w-[100px] h-[100px]"
+        className="md:top-1/5 top-[-30vh] left-20 w-[100px] h-[100px]"
         style={{
           x: image11.x,
           y: image11.y,
@@ -198,7 +198,7 @@ const GallerySection = () => {
 
       <GalleryText 
         words= {["Create", "Memories", "That", "Last", "Forever"]}
-        className="top-[350vh] left-20 max-w-[30vw] leading-snug text-wrap"
+        className="md:top-[350vh] top-[330vh] left-20 md:max-w-[30vw] leading-snug text-wrap"
       />  
 
       {/* Shape 13 */}
@@ -246,7 +246,7 @@ const GallerySection = () => {
        {/* Shape 16 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-1/5 left-20 w-[100px] h-[120px]"
+        className="md:top-1/5 top-[-30vh] left-20 w-[100px] h-[120px]"
         style={{
           x: image16.x,
           y: image16.y,
@@ -259,7 +259,7 @@ const GallerySection = () => {
 
       <GalleryText 
         words= {["Relax,", "Refresh,", "Reconnect"]}
-        className="top-[425vh] right-20"
+        className="md:top-[425vh] top-[380vh] md:right-20 "
       /> 
 
        {/* Shape 17 */}
@@ -321,7 +321,7 @@ const GallerySection = () => {
       {/* Shape 21 */}
      <AnimatedMotionDiv
         variants={commonVariants}
-        className="top-[-120vh] left-[-50vw] w-[100px] h-[100px]"
+        className="md:top-[-120vh] md:left-[-50vw] top-[-140vh] left-[-100vw] w-[100px] h-[100px]"
         style={{
           x: image21.x,
           y: image21.y,

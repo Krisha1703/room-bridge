@@ -5,8 +5,12 @@ import {RenderStars} from './render-star';
 const TestimonialCard = ({ userImage, userName, review, rating }) => {
   return (
     <motion.div
-      className="shadow-lg rounded-lg p-6 w-1/3 h-1/1 mx-auto "
-      whileHover={{ backgroundColor: '#1E3A8A', color: 'white', borderTopRightRadius: "2vw", borderBottomLeftRadius: "2vw" }} transition={{duration: 1, ease: "easeInOut"}} // Use the primary color for the background and white for the text on hover
+      className="shadow-lg rounded-lg p-6 md:w-1/3 w-full h-1/1 mx-auto "
+      initial={{opacity: 0, x: -40}}
+      whileInView={{opacity: 1, x: 0, transition: { duration: 1 }}}
+      whileHover={{ backgroundColor: '#1E3A8A', color: 'white', borderTopRightRadius: "2vw", borderBottomLeftRadius: "2vw" }} 
+      transition={{duration: 1, ease: "easeInOut"}}
+      whileTap={{ backgroundColor: '#1E3A8A', color: 'white', borderTopRightRadius: "2vw", borderBottomLeftRadius: "2vw" }}
     >
       <div className="flex items-center space-x-4">
         {/* User profile image */}

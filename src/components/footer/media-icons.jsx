@@ -6,7 +6,7 @@ export default function MediaIcons({ icon, href }) { //Takes the social media ic
             href={href}
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.5 }}
-            className="text-primary hover:text-secondary text-xl"
+            className="text-primary hover:text-secondary text-xl md:scale-100 scale-125"
         >
             {icon}
         </motion.a>

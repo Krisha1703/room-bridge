@@ -31,7 +31,7 @@ const Footer = () => {
                     custom="left"
                     variants={variants}
                 >
-                    <h3 className="text-primary font-bold text-lg mb-4">Quick Links</h3>
+                    <h3 className="text-primary font-bold text-lg mb-4 md:scale-100 scale-125">Quick Links</h3>
                     <ul>
                         <FooterMenus Menu="Home" Route="/" />
                         <FooterMenus Menu="About Us" Route="/about" />
@@ -48,7 +48,7 @@ const Footer = () => {
                     custom="left"
                     variants={variants}
                 >
-                    <h3 className="text-primary font-bold text-lg mb-4">FAQs</h3>
+                    <h3 className="text-primary font-bold text-lg mb-4 md:scale-100 scale-125">FAQs</h3>
                     <ul>
                         <FooterMenus Menu="Booking Process" Route="/careers" />
                         <FooterMenus Menu="Cancellation Policy" Route="/press" />
@@ -65,8 +65,8 @@ const Footer = () => {
                     custom="top"
                     variants={variants}
                 >
-                    <h3 className="text-primary font-bold text-lg mb-4">Contact Us</h3>
-                    <div className="text-md mb-2 font-semibold text-primary hover:text-secondary ">
+                    <h3 className="text-primary font-bold text-lg mb-4 md:scale-100 scale-125">Contact Us</h3>
+                    <div className="text-md mb-2  font-semibold text-primary hover:text-secondary ">
                         <p>123 Main Street, City, Country</p>
                         <p><a href="mailto:getintouch@aplusatech.com">getintouch@roombridge.com</a></p>
                         <p>+XX 12345 67890</p>
@@ -81,7 +81,7 @@ const Footer = () => {
                     custom="bottom"
                     variants={variants}
                 >
-                    <h3 className="text-primary font-bold text-lg mb-4">Let's Connect</h3>
+                    <h3 className="text-primary font-bold text-lg mb-4 md:scale-100 scale-125">Let's Connect</h3>
                     <div className="flex justify-center md:justify-start space-x-3">
                         <MediaIcons icon={<LinkedIn />} href="https://www.linkedin.com" />
                         <MediaIcons icon={<Facebook />} href="https://www.facebook.com" />
@@ -97,7 +97,7 @@ const Footer = () => {
                     custom="right"
                     variants={variants}
                 >
-                    <h3 className="text-primary font-bold text-lg mb-4">Stay Updated</h3>
+                    <h3 className="text-primary font-bold text-lg mb-4 md:scale-100 scale-125">Stay Updated</h3>
                     <p className="text-md mb-4 font-semibold text-primary hover:text-secondary cursor-pointer">Subscribe to our newsletter for updates and offers.</p>
                     <form className="flex flex-col items-center md:items-start">
                         <input 

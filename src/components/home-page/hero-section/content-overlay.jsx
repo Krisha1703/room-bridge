@@ -17,13 +17,13 @@ const ContentOverlay = () => {
       </h1>
 
       <motion.button
-        className="relative overflow-hidden text-secondary border-2 border-primary border-solid px-8 py-2 rounded-lg font-semibold"
-        initial={{ background: "transparent" }}
+        className="relative overflow-hidden md:bg-transparent bg-primary text-secondary border-2 border-primary border-solid md:px-8 md:py-2 p-2 px-6 rounded-lg font-semibold"
+       
         whileHover="hover"
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className="absolute top-0 left-0 h-full w-0 bg-primary z-0"
+          className="absolute top-0 left-0 h-full md:min-w-0 min-w-full bg-primary z-0"
           variants={{
             hover: { width: "100%" },
           }}

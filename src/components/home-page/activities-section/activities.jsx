@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useMedia from "use-media";
 import Image from "next/image";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
@@ -8,9 +9,10 @@ import ActivitiessData from "@/constants/activities-data";
 const Tilt = dynamic(() => import("react-parallax-tilt"), { ssr: false });
 
 const Activities = () => {
+  const isLargeScreen = useMedia({ minWidth: 768 });
   const activities = ActivitiessData; 
   const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = isLargeScreen ? 4 : 1;
 
   const handleNext = () => {
     if (startIndex + itemsPerPage < activities.length) {
@@ -28,7 +30,7 @@ const Activities = () => {
     <section className="py-0 px-6 relative mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <h2 className="text-3xl font-bold text-primary text-center mb-14">
+        <h2 className="md:text-3xl text-2xl font-bold text-primary text-center mb-14">
             Make the Most of Your Time with Our Activities
         </h2>
 

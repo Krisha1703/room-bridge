@@ -18,10 +18,10 @@ const OffersSection = () => {
 
   return (
     <section className="p-4 bg-white">
-      <h2 className="text-3xl font-bold text-center mt-12 text-primary">
+      <h2 className="md:text-3xl text-2xl font-bold text-center mt-12 text-primary">
         Exclusive Offers & Packages
       </h2>
-      <div className="flex flex-wrap justify-center gap-4 scale-[80%]">
+      <div className="flex flex-wrap justify-center gap-4 md:scale-[80%] scale-[90%]">
         {PromotionalOffers.map((offer, index) => {
           // Animation effect based on the scroll position and offer id
           const slideEffect = slideDirection(offer.id, scrollYProgress);
@@ -29,7 +29,7 @@ const OffersSection = () => {
           return (
             <motion.div
               key={offer.id}
-              className="relative w-full h-[90vh] md:w-1/3 lg:w-1/4 bg-secondary rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              className="relative w-full md:h-[90vh] h-1/2 md:w-1/3 lg:w-1/4 bg-secondary rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
               style={slideEffect} 
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 

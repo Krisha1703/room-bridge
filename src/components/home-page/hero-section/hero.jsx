@@ -1,6 +1,7 @@
 import { motion, useTransform, useScroll } from "motion/react";
 import { useState } from "react";
 import Image from "next/image";
+import useMedia from "use-media";
 import dynamic from "next/dynamic";
 import slides  from "@/constants/slide-details";
 
@@ -12,6 +13,7 @@ const ContentOverlay = dynamic(() => import("@/components/home-page/hero-section
 
 const Hero = () => {
   const {scrollYProgress} = useScroll();
+  const isSmallScreen = useMedia({ maxWidth: 400 });
 
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.8]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.2], ["0%", "20vw"]);
@@ -34,7 +36,7 @@ const Hero = () => {
       <div className="relative w-full h-screen overflow-hidden">
         <motion.div
           key={currentIndex}
-          className="absolute w-full md:h-full h-1/3 overflow-hidden"
+          className={`absolute w-full md:h-full ${isSmallScreen ? "h-[39%]" : "h-1/3"} overflow-hidden`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
