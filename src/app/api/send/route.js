@@ -9,7 +9,7 @@ export async function SendVerificiationEmail(req) {
 
     // Generate the verification token and link
     const verificationToken = Buffer.from(`${email}-${Date.now()}`).toString("base64");
-    const verificationLink = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/verify-user?token=${verificationToken}`;
+    const verificationLink = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/verify-user?token=${verificationToken} || "https://room-bridge.vercel.app/"}/verify-user?token=${verificationToken}`;
 
     console.log("Verification Token: ",verificationToken);
     console.log("Verification Link: ",verificationLink);
