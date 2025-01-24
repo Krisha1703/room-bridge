@@ -2,7 +2,7 @@
 import useUserStore from '@/app/state/store';
 import AdminDashboard from './AdminDashboard';
 import ReceptionistDashboard from './ReceptionistDashboard';
-import HousekeepingDashboard from './HousekeepingDashboard';
+import HousekeepingDashboard from './HouseKeepingDashboard';
 
 const Dashboard = () => {
   const role = useUserStore((state) => state.role);
