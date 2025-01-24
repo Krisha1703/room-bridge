@@ -1,14 +1,40 @@
-import  { useState, memo } from 'react';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useState, memo } from 'react';
+import { Email, Menu } from '@mui/icons-material';
 import { motion } from 'motion/react';
-import { Menu } from '@mui/icons-material';
 import NavbarMenus from './navbar-menus';
+import Login from '../form-modal/login';
+import SignUp from '../form-modal/signup';
+import useUserStore from '@/app/state/store';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const firstname = useUserStore((state) => state.firstname); // Access first name
+  const lastname = useUserStore((state) => state.lastname);
+  const email = useUserStore((state) => state.email);
+  const role = useUserStore((state) => state.role);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSignUp = () => {
+    setIsSignUpOpen(true); 
+    setIsLoginOpen(false)
+  }
+
+  const handleLogin = () => {
+    setIsSignUpOpen(false); 
+    setIsLoginOpen(true)
+  }
+
+  // Generate initials
+  const getInitials = (first, last) => {
+    const firstInitial = first?.[0]?.toUpperCase() || '';
+    const lastInitial = last?.[0]?.toUpperCase() || '';
+    return `${firstInitial}${lastInitial}`;
   };
 
   return (
@@ -41,10 +67,45 @@ const Navbar = () => {
           initial={{ color: '#1E3A8A' }}
           whileHover={{ color: '#FFC107' }}
           transition={{ duration: 0.5 }}
-          className="p-4 cursor-pointer"
+          className="p-4 cursor-pointer flex items-center gap-2"
+          onClick={() => {
+            if (!email) {
+              setIsLoginOpen(true);
+            }
+          }}
         >
-          <AccountCircleIcon className="text-4xl" /> Sign In
+          {firstname ? (
+            <div className="flex items-center gap-2">
+              <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold"
+                  onClick={() => setIsLoginOpen(true)}
+              >
+                {getInitials(firstname, lastname)}
+              </div>
+              <h1 className="text-primary">Hi, {firstname}!</h1>
+            </div>
+          ) : (
+            <>
+              <div className="flex items-center text-primary hover:text-secondary">
+                <AccountCircleIcon className="scale-125" />
+                <h1 className="ml-1">Sign In</h1>
+              </div>
+            </>
+          )}
         </motion.li>
+
+        {isLoginOpen && (
+          <Login
+            onClose={() => setIsLoginOpen(false)}
+            onSwitchToSignUp={handleSignUp}
+          />
+        )}
+
+        {isSignUpOpen && (
+          <SignUp
+            onClose={() => setIsSignUpOpen(false)}
+            onSwitchToLogin={handleLogin}
+          />
+        )}
       </ul>
     </nav>
   );

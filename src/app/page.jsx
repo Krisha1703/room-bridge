@@ -1,10 +1,11 @@
 "use client";
 import { memo } from "react";
-import dynamic from "next/dynamic";;
+import dynamic from "next/dynamic";
+
+import Navbar from "@/components/navbar/navbar";
+import Hero from "@/components/home-page/hero-section/hero";
 
 // Dynamically imported components
-const Navbar = dynamic(() => import("@/components/navbar/navbar"), { ssr: false });
-const Hero = dynamic(() => import("@/components/home-page/hero-section/hero"), { ssr: false });
 const HighlightSection = dynamic(() => import("@/components/home-page/hotel-highlights-section/highlights"), { ssr: false });
 const MostPopularRooms = dynamic(() => import("@/components/home-page/popular-rooms/popular-rooms"), { ssr: false });
 const Adventures = dynamic(() => import("@/components/home-page/adventures-section/adventures"), { ssr: false });

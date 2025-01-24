@@ -1,8 +1,16 @@
-import React from 'react'
+"use client"
+import Footer from "@/components/footer/footer"
+import Navbar from "@/components/navbar/navbar"
+import OffersSection from "@/components/promotional-offers/offers"
 
 const Offers = () => {
   return (
-    <div>Offers</div>
+    <>
+      <Navbar />
+      <OffersSection />
+      <Footer />
+    </>
+    
   )
 }
 
