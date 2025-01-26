@@ -37,7 +37,7 @@ const Hero = () => {
         <motion.div
           key={currentIndex}
           className={`absolute w-full md:h-full ${isSmallScreen ? "h-[39%]" : "h-1/3"} overflow-hidden`}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, borderRadius: "0vw" }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
@@ -49,7 +49,6 @@ const Hero = () => {
             layout="fill"
             objectFit="cover"
             alt={`Slide ${currentIndex + 1}`}
-            loading="lazy"
             className="w-full h-full"
           />
         </motion.div>

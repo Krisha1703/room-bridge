@@ -3,6 +3,7 @@ import useUserStore from '@/app/state/store';
 import AdminDashboard from './AdminDashboard';
 import ReceptionistDashboard from './ReceptionistDashboard';
 import HousekeepingDashboard from './HouseKeepingDashboard';
+import GuestDashboard from './GuestDashboard';
 
 const Dashboard = () => {
   const role = useUserStore((state) => state.role);
@@ -21,6 +22,8 @@ const Dashboard = () => {
       return <ReceptionistDashboard />;
     case 'housekeeping':
       return <HousekeepingDashboard />;
+    case 'guest':
+      return <GuestDashboard />;
     default:
       return <div>Welcome to RoomBridge! You do not have the required permissions.</div>;
   }

@@ -14,6 +14,172 @@ model User {
   email     String @unique
   password  String 
   role      String
+  mobileNumber String?
+  profileImage String?
+  city        String?
+  country     String?
+  gender      Gender?
+  dateOfBirth DateTime?
   isVerified   Boolean  @default(false)
   createdAt    DateTime @default(now())
+  loginAt     DateTime @default(now()) @loginAt
+  updatedAt   DateTime @default(now()) @updatedAt
+  guest       Guest?   @relation(fields: [id], references: [userId])
+  employee    Employee? @relation(fields: [id], references: [userId])
+}
+
+enum Gender {
+  Male
+  Female
+  Other
+}
+
+model Guest {
+  userId       String  @id @map("_id") @db.ObjectId
+  loyalty      Loyalty
+  preferences  Preferences?
+  bookings     Booking[] @relation("GuestBookings")
+}
+
+model Employee {
+  userId          String  @id @map("_id") @db.ObjectId
+  position        Position 
+  joiningDate     DateTime @default(now())
+  salary          Float
+  responsibilities Responsibilities
+}
+
+enum Position {
+  Housekeeping
+  Receptionist
+  Manager
+  Admin
+}
+
+model Loyalty {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  guestId     String  @unique @db.ObjectId
+  isLoyalGuest Boolean @default(false)
+  isFirstBird Boolean @default(false)
+}
+
+model Preferences {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  guestId   String @unique @db.ObjectId
+  roomType  RoomType?
+  minBudget Float?
+  maxBudget Float?
+}
+
+model Responsibilities {
+  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
+  employeeId         String  @unique @db.ObjectId
+  manageRooms        Boolean @default(false)
+  maintenanceTasks   String[] // Array of maintenance tasks
+  totalRoomsBooked   Int     @default(0)
+  revenueGenerated   Float   @default(0)
+}
+
+model Room {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  roomNumber     String   @unique
+  roomType       RoomType
+  status         RoomStatus @default(AVAILABLE)
+  roomCategory   String?
+  description    String?
+  pricePerNight  Float
+  rating         Float @default(0)
+  numberOfReviews Int @default(0)
+  amenities      Amenities
+  bookings       Booking[] @relation("RoomBookings")
+}
+
+enum RoomType {
+  Luxury
+  Romantic
+  Suite
+  Family
+  Deluxe
+  Standard
+}
+
+enum RoomStatus {
+  Available
+  Occupied
+  Cleaning
+  Maintenance
+}
+
+model Amenities {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  wifi        Boolean @default(true)
+  pool        Boolean @default(false)
+  gym         Boolean @default(false)
+  parking     Boolean @default(false)
+  miniFridge  Boolean @default(false)
+  coffeeMaker Boolean @default(false)
+  laundry     Boolean @default(false)
+  breakfast   Boolean @default(false)
+  spa         Boolean @default(false)
+  meetingRoom Boolean @default(false)
+  tv          Boolean @default(true)
+}
+
+model Booking {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  guestId        String   @db.ObjectId
+  roomId         String   @db.ObjectId
+  bookingDateTime DateTime @default(now())
+  checkInDate    DateTime
+  checkInTime    String?
+  checkOutDate   DateTime
+  checkOutTime   String?
+  bookingStatus  BookingStatus @default(PENDING)
+  paymentId      String? @db.ObjectId
+}
+
+enum BookingStatus {
+  Pending
+  Confirmed
+  Canceled
+}
+
+model Payment {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  bookingId   String   @db.ObjectId
+  amount      Float
+  paymentDate DateTime @default(now())
+  isSuccess   Boolean  @default(false)
+}
+
+model Activity {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  booked        Int
+  available     Int
+  price          Float
+  reviews        String[]
+}
+
+model Adventure {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  booked         Int
+  available      Int
+  price          Float
+  reviews        String[]
+}
+
+model PromotionalOffer {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  eligibility Eligibility
+  validUntil  DateTime?
+  isAvailable Boolean @default(true)
+}
+
+model Eligibility {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  newBird       Boolean @default(false)
+  loyalCustomer Boolean @default(false)
 }

@@ -1,17 +1,19 @@
 import { useState, memo } from 'react';
-import { Email, Menu } from '@mui/icons-material';
+import {  Menu } from '@mui/icons-material';
 import { motion } from 'motion/react';
 import NavbarMenus from './navbar-menus';
 import Login from '../form-modal/login';
 import SignUp from '../form-modal/signup';
 import useUserStore from '@/app/state/store';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import User from '../form-modal/user';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
-  const firstname = useUserStore((state) => state.firstname); // Access first name
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false); 
+  const firstname = useUserStore((state) => state.firstname);
   const lastname = useUserStore((state) => state.lastname);
   const email = useUserStore((state) => state.email);
   const role = useUserStore((state) => state.role);
@@ -21,14 +23,20 @@ const Navbar = () => {
   };
 
   const handleSignUp = () => {
-    setIsSignUpOpen(true); 
-    setIsLoginOpen(false)
-  }
+    setIsSignUpOpen(true);
+    setIsLoginOpen(false);
+  };
 
   const handleLogin = () => {
-    setIsSignUpOpen(false); 
-    setIsLoginOpen(true)
-  }
+    setIsSignUpOpen(false);
+    setIsLoginOpen(true);
+  };
+
+  // Logout handler
+  const handleLogout = () => {
+    useUserStore.getState().resetUser(); // Reset user details in the store
+    setIsUserModalOpen(false);
+  };
 
   // Generate initials
   const getInitials = (first, last) => {
@@ -71,25 +79,25 @@ const Navbar = () => {
           onClick={() => {
             if (!email) {
               setIsLoginOpen(true);
+            } else {
+              setIsUserModalOpen(true);
             }
           }}
         >
           {firstname ? (
             <div className="flex items-center gap-2">
-              <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold"
-                  onClick={() => setIsLoginOpen(true)}
+              <div
+                className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold"
               >
                 {getInitials(firstname, lastname)}
               </div>
               <h1 className="text-primary">Hi, {firstname}!</h1>
             </div>
           ) : (
-            <>
-              <div className="flex items-center text-primary hover:text-secondary">
-                <AccountCircleIcon className="scale-125" />
-                <h1 className="ml-1">Sign In</h1>
-              </div>
-            </>
+            <div className="flex items-center text-primary hover:text-secondary">
+              <AccountCircleIcon className="scale-125" />
+              <h1 className="ml-1">Sign In</h1>
+            </div>
           )}
         </motion.li>
 
@@ -104,6 +112,17 @@ const Navbar = () => {
           <SignUp
             onClose={() => setIsSignUpOpen(false)}
             onSwitchToLogin={handleLogin}
+          />
+        )}
+
+        {isUserModalOpen && (
+          <User
+            onClose={() => setIsUserModalOpen(false)}
+            onLogout={handleLogout}
+            onGoToDashboard={() => window.location.href = '/dashboard'}
+            firstname={firstname}
+            lastname={lastname}
+            email={email}
           />
         )}
       </ul>

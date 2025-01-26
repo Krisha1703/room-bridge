@@ -25,7 +25,7 @@ const getRoleFromEmail = (email) => {
   }
 
   // Default role for normal users
-  return 'user'; 
+  return 'guest'; 
 };
 
 
@@ -42,6 +42,7 @@ export const register = async (data) => {
 
   const { firstName, lastName, email, password } = validatedFields.data;
   console.log(validatedFields.data)
+  console.log("Database URL: ", process.env.DATABASE_URL);
 
   // Hash the password for storage
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -77,6 +78,7 @@ export const register = async (data) => {
   } 
   catch (error) {
     console.log("data fail: " , data)
+    console.error("Error details:", JSON.stringify(error, null, 2)); // Logs detailed error info
     return { error: "An error occurred while creating the account." };
   }
 };
