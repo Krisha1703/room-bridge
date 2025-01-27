@@ -1,7 +1,8 @@
+import UserDashboard from "../profile/page";
 
 const GuestDashboard = () => {
   return (
-    <div>GuestDashboard</div>
+    <UserDashboard />
   )
 }
 

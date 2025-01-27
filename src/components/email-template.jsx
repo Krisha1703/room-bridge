@@ -7,7 +7,7 @@ export const EmailTemplate = ({ firstName, lastName, verificationLink }) => {
             <span className="text-primary">Bridge</span>
         </h1>
 
-        <h1>Welcome, <span className="italic">{firstName} {lastName}!</span></h1>
+        <h3>Welcome, <span className="italic">{firstName} {lastName}!</span></h3>
         <p>Thank you for signing up with Roombridge.</p>
         <p className="my-2">Please verify your email address by clicking the button below</p>
         
