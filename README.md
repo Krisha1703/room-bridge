@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏨 Roombridge - Hotel Room Booking System
 
-## Getting Started
+## 📋 Overview
+**Roombridge** is an ongoing personal project designed to streamline the hotel room booking process for users. It features a seamless experience for users to select their room preferences, view available rooms, and complete bookings. The platform supports multiple user roles, including guests, registered users, housekeeping, receptionists, managers, and admins. The project is built using **Next.js**, **Tailwind CSS**, **Framer Motion**, and **MongoDB**.
 
-First, run the development server:
+### Current Status:
+- The **landing page** has been completed, with sections like **Hero**, **Popular Rooms**, **Activities**, **Gallery**, and **Footer**.
+- **Login and sign-up modals** have been implemented. Users receive a **verification email** after signing up, and can only log in once their account is verified.
+- The **Guest dashboard** is implemented, where users can view and manage their bookings based on their role.
+- **Resend** is used for sending verification emails.
+- The project is still in progress with ongoing features being added.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🖥️ Tech Stack
+- **Frontend:** Next.js ⚡, Tailwind CSS 🎨, Framer Motion 🖼️
+- **Backend:** Next.js server actions 🌐
+- **Database:** MongoDB, Prisma ORM 🗄️ (for storing booking data and user information)
+- **API Integration:** RESTful APIs for user management, booking, and preferences.
+- **Email API:** Resend (for verification emails)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### ✅ Implemented Features
+- **Landing Page:** Sections include Hero, Popular Rooms, Activities, Gallery, and Footer.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![hero-section.png](/room-bridge/public/screenshots/hero-section.png)
+*Hero section.*
 
-## Learn More
+![why-roombridge.png](/room-bridge/public/screenshots/why-roombridge.png)
+*Why choose RoomBridge.*
 
-To learn more about Next.js, take a look at the following resources:
+![most-popular-rooms.png](/room-bridge/public/screenshots/popular-rooms.png)
+*Popular and trending rooms.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![gallery-image.png](/room-bridge/public/screenshots/gallery-image.png)
+*Gallery section.*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![footer-section.png](/room-bridge/public/screenshots/footer-section.png)
+*Footer section.*
 
-## Deploy on Vercel
+- **Login and Sign-up Modals:** Users sign up, verify their email, and then log in to access the platform.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![login-modal.png](/room-bridge/public/screenshots/login-modal.png)
+*User login modal.*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **User Role-Based Dashboard:** Displays different views based on the user’s role (currently implemented for Guests).
+
+![dashboard.png](/room-bridge/public/screenshots/dashboard.png)
+*User dashboard.*
+
+- **Email Verification:** Users must verify their email via a confirmation link before accessing the platform.
+- **MongoDB Database Integration:** Data is stored securely for user management.
+- **Mobile-Friendly:** Optimized for use across devices, ensuring a smooth experience on both desktop and mobile.
+
+### 🚧 Ongoing and Future Features
+- **🚀 Add More User Roles:** Expanding user roles to include Housekeeping, Receptionist, Manager, Admin, etc., with role-specific dashboards and functionalities.
+- **🚀 Room Preferences:** Allow users to filter and select room types based on preferences (e.g., budget, amenities, location).
+- **🚀 Implement Advanced Filtering:** Add options to filter rooms by type, location, and other attributes for easier navigation.
+- **🚀 Payment Gateway Integration:** Add support for secure payments to complete the booking process.
+- **🚀 Room Rating and Review System:** Implement a system for guests to rate and review rooms and services.
+- **🚀 Notifications:** Email notifications for booking confirmations, cancellations, and reminders.
+- **🚀 Dynamic Pricing and Exclusive Offers:** Implement a dynamic pricing model based on room availability, time, exclusive offers, and demand.
+
+## 🛠️ Installation
+1. Clone the repository:
+   ```bash
+   https://github.com/Krisha1703/room-bridge.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd room bridge
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+
+### 🖥️ Live Deployed Link
+https://room-bridge.vercel.app
+
+
