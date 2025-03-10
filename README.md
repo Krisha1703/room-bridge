@@ -38,8 +38,11 @@
 *Footer section.*
 
 - **Login and Sign-up Modals:** Users sign up, verify their email, and then log in to access the platform.
+*Note: Test Credentials 
+    - username: testuser@example.com
+    - password: testpassword123
 
-![login-modal.png](/room-bridge/public/screenshots/login-modal.png)
+![login-modal.png](/room-bridge/public/screenshots/login-modal.png) 
 *User login modal.*
 
 - **User Role-Based Dashboard:** Displays different views based on the user’s role (currently implemented for Guests).
@@ -80,5 +83,8 @@
 
 ### 🖥️ Live Deployed Link
 https://room-bridge.vercel.app
+
+### 🖥️ Project Video Demo
+https://drive.google.com/file/d/1SAXcbrW15kfVM5ShW_ScqlS0wlf9-LCb/view?usp=sharing
 
 
