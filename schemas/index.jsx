@@ -81,7 +81,7 @@ export const UserProfileSchema = z.object({
     .refine((file) => {
       // Only run validation if the file is provided
       if (file) {
-        return file instanceof File || typeof file === "string"; // Validate file or URL
+        return true; // Validate file or URL
       }
       return true;  // If no file, skip the validation
     }, {

@@ -17,7 +17,7 @@ const OffersSection = () => {
   };
 
   return (
-    <section className="p-4 bg-white">
+    <section className="p-4 bg-white overflow-x-hidden">
       <h2 className="md:text-3xl text-2xl font-bold text-center mt-12 text-primary">
         Exclusive Offers & Packages
       </h2>

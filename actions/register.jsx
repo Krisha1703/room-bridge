@@ -40,7 +40,7 @@ export const register = async (data) => {
     return { error: "Invalid fields!" };
   }
 
-  const { firstName, lastName, email, password } = validatedFields.data;
+  const { firstName, lastName, email, password, mobileNumber, profileImage, city, country, gender, dateOfBirth } = validatedFields.data;
   console.log(validatedFields.data)
   console.log("Database URL: ", process.env.DATABASE_URL);
 
@@ -69,6 +69,12 @@ export const register = async (data) => {
         role,
         isVerified: false,
         createdAt: new Date(),
+        mobileNumber: mobileNumber || null,   // Handle optional fields
+        profileImage: profileImage || null,
+        city: city || null,
+        country: country || null,
+        gender: gender || null,
+        dateOfBirth: dateOfBirth ? new Date(dateOfBirth) : null, 
       },
     });
 

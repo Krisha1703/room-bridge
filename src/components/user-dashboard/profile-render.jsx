@@ -8,7 +8,21 @@ import SubmitButton from "../form-modal/submit-button";
 import Heading from "./heading";
 
 const renderProfileForm = ({user}) => {
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
     const [isPending, startTransition] = useTransition();
+    const [uploadSuccess, setUploadSuccess] = useState("");
+
+    const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        setUploadSuccess("✅ File uploaded successfully!");
+    } else {
+        setUploadSuccess(""); // Reset message when no file is selected
+    }
+    };
+
 
     const form = useForm({
         resolver: zodResolver(UserProfileSchema),
@@ -26,7 +40,7 @@ const renderProfileForm = ({user}) => {
       });
 
     const onSubmit = (data) => {
-    
+        
         startTransition(() => {
         updateUser(data).then((response) => {
             if (response.error) {
@@ -35,6 +49,8 @@ const renderProfileForm = ({user}) => {
             setSuccess(response.success);
             }
         });
+        console.log("save button clicked and update user function tirggered!");
+        console.log(data);
         });
     };
         
@@ -44,7 +60,7 @@ const renderProfileForm = ({user}) => {
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4">
 
-            {/* Profile Image */}
+           {/* Profile Image */}
             <InputField
                 label="Profile Image"
                 id="image"
@@ -52,7 +68,11 @@ const renderProfileForm = ({user}) => {
                 register={form.register("image")}
                 error={form.formState.errors.image}
                 disabled={isPending}
+                onChange={handleFileChange} // Handle file change event
             />
+
+            {/* Show success message */}
+            {uploadSuccess && <p className="text-green-500 text-sm">{uploadSuccess}</p>}
 
             {/* Recovery Email */}
             <InputField
