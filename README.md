@@ -22,32 +22,32 @@
 ### ✅ Implemented Features
 - **Landing Page:** Sections include Hero, Popular Rooms, Activities, Gallery, and Footer.
 
-![hero-section.png](/room-bridge/public/screenshots/hero-section.png)
+![hero-section.png](/public/screenshots/hero-section.png)
 *Hero section.*
 
-![why-roombridge.png](/room-bridge/public/screenshots/why-roombridge.png)
+![why-roombridge.png](/public/screenshots/why-roombridge.png)
 *Why choose RoomBridge.*
 
-![most-popular-rooms.png](/room-bridge/public/screenshots/popular-rooms.png)
+![most-popular-rooms.png](/public/screenshots/popular-rooms.png)
 *Popular and trending rooms.*
 
-![gallery-image.png](/room-bridge/public/screenshots/gallery-image.png)
+![gallery-image.png](/public/screenshots/gallery-image.png)
 *Gallery section.*
 
-![footer-section.png](/room-bridge/public/screenshots/footer-section.png)
+![footer-section.png](/public/screenshots/footer-section.png)
 *Footer section.*
 
 - **Login and Sign-up Modals:** Users sign up, verify their email, and then log in to access the platform.
-*Note: Test Credentials 
-    - username: testuser@example.com
-    - password: testpassword123
+    - *Note: Test Credentials* 
+        - username: testuser@example.com
+        - password: testpassword123
 
-![login-modal.png](/room-bridge/public/screenshots/login-modal.png) 
+![login-modal.png](/public/screenshots/login-modal.png) 
 *User login modal.*
 
 - **User Role-Based Dashboard:** Displays different views based on the user’s role (currently implemented for Guests).
 
-![dashboard.png](/room-bridge/public/screenshots/dashboard.png)
+![dashboard.png](/public/screenshots/dashboard.png)
 *User dashboard.*
 
 - **Email Verification:** Users must verify their email via a confirmation link before accessing the platform.
