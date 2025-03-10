@@ -76,9 +76,9 @@
    ```bash
    npm install
    ```
-4. Start the development server:
+4. Start the application:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### 🖥️ Live Deployed Link
