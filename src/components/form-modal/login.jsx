@@ -5,7 +5,6 @@ import { LoginSchema } from "../../../schemas";
 import { login } from "../../../actions/login";
 import { useTransition } from "react";
 import useUserStore from "@/app/state/store";
-import { useRouter } from "next/navigation";
 
 import Modal from "./modal";
 import InputField from "./input-field";
@@ -21,7 +20,6 @@ const Login = ({ onClose, onSwitchToSignUp }) => {
   const setLastName = useUserStore((state) => state.setLastName);
   const setEmail = useUserStore((state) => state.setEmail);
   const setRole = useUserStore((state) => state.setRole);
-  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(LoginSchema),
@@ -33,24 +31,20 @@ const Login = ({ onClose, onSwitchToSignUp }) => {
 
 
   const onSubmit = (data) => {
-    setError("");  // Clear previous error messages
-    setSuccess("");  // Clear previous success messages
+    setError(""); 
+    setSuccess("");  
 
     startTransition(() => {
       login(data)
         .then((result) => {
           if (result.error) {
-            setError(result.error);  // Set the error message
+            setError(result.error); 
           } else {
-            setSuccess(result.success);  // Set the success message
-            setFirstName(result.FirstName); // Update the user details in the global state
+            setSuccess(result.success);  
+            setFirstName(result.FirstName); 
             setLastName(result.LastName);
             setEmail(result.Email);
-            setRole(result.Role);
-            // Redirect based on role
-            if (result.Role !== "user") {
-              router.push("/dashboard");
-            }  
+            setRole(result.Role); 
           }
         });
     });

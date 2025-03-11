@@ -11,11 +11,26 @@
 - The project is still in progress with ongoing features being added.
 
 ## 🖥️ Tech Stack
-- **Frontend:** Next.js ⚡, Tailwind CSS 🎨, Framer Motion 🖼️
-- **Backend:** Next.js server actions 🌐
+- **Frontend:** Next.js ⚡, Tailwind CSS 🎨, Framer Motion, Material UI (MUI) 🖼️
+- **Backend:** Next.js server actions, Bcrypt.js (for password hashing) 🌐
 - **Database:** MongoDB, Prisma ORM 🗄️ (for storing booking data and user information)
 - **API Integration:** RESTful APIs for user management, booking, and preferences.
 - **Email API:** Resend (for verification emails)
+- **Testing** React Testing Library, Next.js Jest
+
+## Component Test Scripts
+
+The project uses **Jest** along with **React Testing Library** to test components and functionality. All test scripts are located inside the `/tests` folder. 
+
+- **Navbar Component**: Tests rendering of the logo, visibility of the "Sign In" button based on user authentication state, and the opening of modals (login, user modals) when the corresponding buttons are clicked.
+- **Login Modal**: Tests the interaction with the login modal, ensuring that it opens when the "Sign In" button is clicked and verifies the correct functioning of form fields and submission.
+- **User Modal**: Ensures that the user modal appears and behaves as expected when a logged-in user interacts with their profile or initials.
+
+To run the tests, use the following command:
+
+```bash
+npm run test
+```
 
 ## 🚀 Features
 

@@ -1,5 +1,5 @@
 import { useState, memo } from 'react';
-import {  Menu } from '@mui/icons-material';
+import { Menu } from '@mui/icons-material';
 import { motion } from 'motion/react';
 import NavbarMenus from './navbar-menus';
 import Login from '../form-modal/login';
@@ -12,11 +12,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
-  const [isUserModalOpen, setIsUserModalOpen] = useState(false); 
-  const firstname = useUserStore((state) => state.firstname);
-  const lastname = useUserStore((state) => state.lastname);
-  const email = useUserStore((state) => state.email);
-  const role = useUserStore((state) => state.role);
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+
+  // Get user state from the store
+  const { firstname, lastname, email, role } = useUserStore();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,10 +39,11 @@ const Navbar = () => {
 
   // Generate initials
   const getInitials = (first, last) => {
-    const firstInitial = first?.[0]?.toUpperCase() || '';
-    const lastInitial = last?.[0]?.toUpperCase() || '';
+    const firstInitial = first && typeof first === 'string' ? first[0].toUpperCase() : ''; // Ensure it's a string before calling toUpperCase
+    const lastInitial = last && typeof last === 'string' ? last[0].toUpperCase() : ''; // Ensure it's a string before calling toUpperCase
     return `${firstInitial}${lastInitial}`;
   };
+  
 
   return (
     <nav
@@ -51,9 +51,10 @@ const Navbar = () => {
       role="navigation"
     >
       <div className="flex justify-between items-center">
-        <h1 className="text-secondary font-semibold text-2xl p-4">
+        <h1 className="text-secondary font-semibold text-2xl p-4" data-testid="logo">
           Room<span className="text-primary">Bridge</span>
         </h1>
+
         <Menu
           onClick={toggleMenu}
           className="md:hidden text-primary cursor-pointer"
@@ -101,30 +102,36 @@ const Navbar = () => {
           )}
         </motion.li>
 
-        {isLoginOpen && (
-          <Login
-            onClose={() => setIsLoginOpen(false)}
-            onSwitchToSignUp={handleSignUp}
-          />
-        )}
+
+        <div data-testid="login-modal">
+          {isLoginOpen && (
+            <Login
+              onClose={() => setIsLoginOpen(false)}
+              onSwitchToSignUp={handleSignUp}
+            />
+          )}
+        </div>
 
         {isSignUpOpen && (
           <SignUp
             onClose={() => setIsSignUpOpen(false)}
             onSwitchToLogin={handleLogin}
+            data-testid="signup-modal"
           />
         )}
 
-        {isUserModalOpen && (
-          <User
-            onClose={() => setIsUserModalOpen(false)}
-            onLogout={handleLogout}
-            onGoToDashboard={() => window.location.href = '/dashboard'}
-            firstname={firstname}
-            lastname={lastname}
-            email={email}
-          />
-        )}
+<       div data-testid="user-modal">
+          {isUserModalOpen && (
+            <User
+              onClose={() => setIsUserModalOpen(false)}
+              onLogout={handleLogout}
+              onGoToDashboard={() => window.location.href = '/dashboard'}
+              firstname={firstname}
+              lastname={lastname}
+              email={email}
+            />
+          )}
+        </div>
       </ul>
     </nav>
   );
